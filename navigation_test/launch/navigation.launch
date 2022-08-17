@@ -55,7 +55,7 @@
 	
   <!-- Initial Pose and Goal Publisher -->
   <!-- Publish: /initialpose, /move_base_simple/goal -->
-  <node pkg="rviz" type="rviz" name="rviz" args="-d /home/pithreeone/catkin_ws/rviz/navigation_test.rviz"> 
+  <node pkg="rviz" type="rviz" name="rviz" args="-d /home/pithreeone/catkin_ws/src/navigation/navigation_test/rviz/rviz.rviz"> 
   </node> 
 
   <!-- Subscribe: /initialpose, /move_base_simple/goal -->

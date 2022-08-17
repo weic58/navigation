@@ -44,18 +44,18 @@ TebLocalPlannerROS:
  # Trajectory
   
  teb_autosize: True
- dt_ref: 0.2
+ dt_ref: 0.3
  dt_hysteresis: 0.1
  global_plan_overwrite_orientation: True
  max_global_plan_lookahead_dist: 0.3 
  feasibility_check_no_poses: 5
     
  # Robot
-         
+
  max_vel_x: 0.5
  max_vel_x_backwards: 0.5
  max_vel_theta: 1.5
- acc_lim_x: 1
+ acc_lim_x: 0.7
  acc_lim_theta: 1
  min_turning_radius: 0.0
  footprint_model: # types: "point", "circular", "two_circles", "line", "polygon"
@@ -97,7 +97,7 @@ TebLocalPlannerROS:
  weight_acc_lim_x: 1
  weight_acc_lim_theta: 1
  weight_kinematics_nh: 1000
- weight_kinematics_forward_drive: 80
+ weight_kinematics_forward_drive: 150
  weight_kinematics_turning_radius: 1
  weight_optimaltime: 1
  weight_obstacle: 0
