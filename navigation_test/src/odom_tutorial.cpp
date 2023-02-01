@@ -29,7 +29,7 @@ int main(int argc, char** argv){
   ros::init(argc, argv, "odometry_publisher");
 
   ros::NodeHandle nh;
-  ros::Publisher odom_pub = nh.advertise<nav_msgs::Odometry>("odom", 50);
+  ros::Publisher odom_pub = nh.advertise<nav_msgs::Odometry>("odom", 50); //"global_filter"
   ros::Subscriber sub = nh.subscribe("/cmd_vel", 1000, vel_callback);
   ros::Subscriber sub_initial_pose = nh.subscribe("/initialpose", 1000, initial_pose_callback);
 

@@ -9,7 +9,7 @@ TrajectoryPlannerROS:
   acc_lim_x: 0.25
   # acc_lim_Y: 0.25
 
-  holonomic_robot: false
+  holonomic_robot: true #false
 
   meter_scoring: true
 
@@ -27,7 +27,7 @@ EbandPlannerROS:
   # common parameters
   xy_goal_tolerance: 0.1
   yaw_goal_tolerance: 0.05
-  rot_stopper_vel: 0.01
+  rot_stopped_vel: 0.01
   trans_stopped_vel: 0.01
   
   # visualization parameters
@@ -38,7 +38,7 @@ EbandPlannerROS:
 
 TebLocalPlannerROS:
 
- odom_topic: odom
+ odom_topic: odom #global_filter 
  map_frame: /odom
     
  # Trajectory
@@ -60,7 +60,7 @@ TebLocalPlannerROS:
  min_turning_radius: 0.0
  footprint_model: # types: "point", "circular", "two_circles", "line", "polygon"
    type: "circular"
-   radius: 0.15 # for type "circular"
+   radius: 0.30 # for type "circular"
    line_start: [-0.3, 0.0] # for type "line"
    line_end: [0.3, 0.0] # for type "line"
    front_offset: 0.2 # for type "two_circles"

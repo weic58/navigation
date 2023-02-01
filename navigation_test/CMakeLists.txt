@@ -16,6 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   tf
   tf2
+  sensor_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -162,6 +163,14 @@ target_link_libraries(odom ${catkin_LIBRARIES})
 add_executable(odom_tutorial src/odom_tutorial.cpp)
 add_dependencies(odom_tutorial ${catkin_EXPORTED_TARGETS})
 target_link_libraries(odom_tutorial ${catkin_LIBRARIES})
+
+add_executable(goal_trans src/goal_trans.cpp)
+add_dependencies(goal_trans ${catkin_EXPORTED_TARGETS})
+target_link_libraries(goal_trans ${catkin_LIBRARIES})
+
+add_executable(laser_scan_publisher src/laser_scan_publisher.cpp)
+add_dependencies(laser_scan_publisher ${catkin_EXPORTED_TARGETS})
+target_link_libraries(laser_scan_publisher ${catkin_LIBRARIES})
 #############
 ## Install ##
 #############

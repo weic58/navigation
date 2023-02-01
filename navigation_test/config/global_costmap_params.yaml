@@ -1,12 +1,12 @@
 global_costmap:
-  global_frame: /map
-  robot_base_frame: base
+  global_frame: map #/map
+  robot_base_frame: base_footprint #base
   static_map: true
   rolling_window: false
 
   update_frequency: 2.0
   publish_frequency: 2.0
   transform_tolerance: 0.2
-  resolution: 0.1
+  resolution: 0.01 # 0.1
   visualize_potential: true
 

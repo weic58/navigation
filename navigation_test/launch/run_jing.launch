@@ -1,7 +1,7 @@
 <launch>
 
   <!-- Transformation Configuration ... Setting Up the Relationships Between Coordinate Frames --> 
-  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0 0 0 3.1415926 0 0 base_link laser 30" />
+  <node pkg="tf" type="static_transform_publisher" name="map_to_laser" args="0 0.2 0 0 0 0 base_link laser 30" />
   <node pkg="tf" type="static_transform_publisher" name="imu_broadcaster" args="0 0.06 0.02 0 0 0 base_link imu 30" />
   <node pkg="tf" type="static_transform_publisher" name="base_link_broadcaster" args="0 0 0 0 0 0 base_footprint base_link 30" />
   <!-- <node pkg="tf" type="static_transform_publisher" name="odom_to_base_link" args="0 0 0 0 0 0 odom base_link 30" /> -->
@@ -55,7 +55,7 @@
 	
   <!-- Initial Pose and Goal Publisher -->
   <!-- Publish: /initialpose, /move_base_simple/goal -->
-  <node pkg="rviz" type="rviz" name="rviz" args="-d /home/wei/catkin_ws/src/navigation/navigation_test/rviz/rviz.rviz"> 
+  <node pkg="rviz" type="rviz" name="rviz" args="-d /home/wei/catkin_ws/src/navigation/navigation_test/rviz/jing.rviz"> 
   </node> 
 
   <!-- Subscribe: /initialpose, /move_base_simple/goal -->
@@ -98,7 +98,7 @@
   <!-- Subscribe: /move_base_simple/goal -->
   <!-- Publish: /cmd_vel -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-    <!-- <remap from="/cmd_vel" to="/vel_obseleted" /> -->
+    <remap from="/cmd_vel" to="/vel_obseleted" />
     <rosparam file="$(find navigation_test)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find navigation_test)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <!-- <rosparam file="$(find navigation_test)/config/local_costmap_params.yaml" command="load"  ns="local_costmap"/>
@@ -106,17 +106,17 @@
     <rosparam file="$(find navigation_test)/config/local_costmap_params.yaml" command="load"  />
     <rosparam file="$(find navigation_test)/config/global_costmap_params.yaml" command="load"  />
  
-    <rosparam file="$(find navigation_test)/config/base_local_planner_params.yaml" command="load" />
+    <!-- <rosparam file="$(find navigation_test)/config/base_local_planner_params.yaml" command="load" /> -->
     <rosparam file="$(find navigation_test)/config/global_planner_params.yaml" command="load" />
     <rosparam file="$(find navigation_test)/config/move_base_params.yaml" command="load" />
   </node>
 
   <!-- <node pkg="navigation_test" name="goal_trans" type="goal_trans" /> -->
 
-  <!-- <node name="path_tracker" pkg="robot_navigation" type="pathTracker" output="screen"> --> -->
+  <node name="path_tracker" pkg="robot_navigation" type="pathTracker" output="screen"> -->
     <!-- <node name="path_tracker" pkg="robot_navigation" type="pathTracker_main" output="screen"> -->
     <!-- <node name="path_tracker" pkg="robot_navigation" type="pathTracker_main_vl53" output="screen"> -->
-    <!-- <rosparam file="$(find robot_navigation)/params/pathTracker_yellow.yaml" command="load" /> 
-  </node> -->
+    <rosparam file="$(find robot_navigation)/params/pathTracker_yellow.yaml" command="load" /> 
+  </node>
 
 </launch>
